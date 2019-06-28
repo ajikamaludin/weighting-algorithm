@@ -12,12 +12,12 @@ document = [
 #     'Shipment of gold damaged in a fire Delivery of silver arrived in a silver truck Shipment of gold arrived in a truck truck truck truck'
 # ]
 
-q = 'gold'
+q = 'silver'
 
 print('Pembobotan TF-IDF')
 tfidf = TfIdf().transform(q=q, document=document)
-print('TF : ' + str(tfidf.tf))
-print('Bobot ' + q + ' : ' + str(tfidf.get_weight()))
+print("Bobot rata-rata: " + str(tfidf.weight_average()))
+pprint.pprint(tfidf.get_weight())
 print("+---------------------------------+")
 
 print('Pembobotan W-IDF : ' + q)
