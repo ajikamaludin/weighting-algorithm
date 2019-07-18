@@ -12,6 +12,7 @@ class BM25():
         self.corpus = {}
         self.lave = 0
         self.document_contains = 0
+        self.total_weight = 0
 
     def transform(self, q, document):
         self.query = q
@@ -43,4 +44,10 @@ class BM25():
             else:
                 weight = 0
             self.corpus[key]["weight"] = weight
+            self.total_weight += weight
         return self.corpus
+
+    def weight_average(self): #bikinan sendiri
+        self.total_weight = 0
+        self.weigth()
+        return ((self.total_weight) / len(self.document))
